@@ -32,3 +32,6 @@ uninstall:
 
 clean:
 	@go clean
+
+clean_modcache:
+	@go clean -modcache
