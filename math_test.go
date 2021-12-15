@@ -17,3 +17,20 @@ func TestBetweenZeroAndMax(t *testing.T) {
 		t.Errorf("BetweenZeroAndMax(%d) > %d, want %d <= %d", input, got, input, got)
 	}
 }
+
+// TestRound ... ensure that this function always rounds up/down correctly
+func TestRound(t *testing.T) {
+	input := 1.3
+	got := Round(input)
+
+	if got != 1 {
+		t.Errorf("Round(%f) != 1, want %d == 1", input, got)
+	}
+
+	input = -2.6
+	got = Round(input)
+
+	if got != -2 {
+		t.Errorf("Round(%f) != -2, want %d == -2", input, got)
+	}
+}

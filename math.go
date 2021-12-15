@@ -62,12 +62,10 @@ func Percent(percent, of int) int {
 func Round(x float64) int {
 
 	// Define the precise (e.g. 1 == int)
-	prec := 1
+	prec := float64(1)
 
-	var rounder float64
-
-	// Set the X^Y power based on the earlier defined precise.
-	pow := math.Pow(10, float64(prec))
+	// Set the X^Y power based on the earlier defined precision
+	pow := math.Pow(10, prec)
 
 	// Determine the intermediate
 	intermed := x * pow
@@ -86,10 +84,9 @@ func Round(x float64) int {
 	}
 
 	// Fraction 0.5 or more? Ceiling then.
+	rounder := math.Floor(intermed)
 	if frac >= x {
 		rounder = math.Ceil(intermed)
-	} else {
-		rounder = math.Floor(intermed)
 	}
 
 	if pow == 0 {
