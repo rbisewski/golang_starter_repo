@@ -30,6 +30,9 @@ install:
 uninstall:
 	@go clean -i github.com/rbisewski/golang_starter_repo
 
+lint:
+	@golint
+
 test:
 	@go test
 
